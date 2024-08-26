@@ -67,7 +67,7 @@ open class WSTagsField: UIScrollView {
         }
     }
     
-    /// Whether the text field should tokenize strings automatically when the keyboard is dismissed. 
+    /// Whether the text field should tokenize strings automatically when the keyboard is dismissed.
     open var shouldTokenizeAfterResigningFirstResponder: Bool = false
 
     open var maxHeight: CGFloat = CGFloat.infinity {
@@ -340,8 +340,8 @@ open class WSTagsField: UIScrollView {
     }
 
     open func endEditing() {
-        // NOTE: We used to check if .isFirstResponder and then resign first responder, but sometimes we noticed 
-        // that it would be the first responder, but still return isFirstResponder=NO. 
+        // NOTE: We used to check if .isFirstResponder and then resign first responder, but sometimes we noticed
+        // that it would be the first responder, but still return isFirstResponder=NO.
         // So always attempt to resign without checking.
         self.textField.resignFirstResponder()
     }
@@ -360,7 +360,7 @@ open class WSTagsField: UIScrollView {
     }
 
     open func addTag(_ tag: String) {
-        addTag(WSTag(tag))
+        addTag(WSTag(tag, context: tag))
     }
 
     open func addTag(_ tag: WSTag) {
@@ -425,7 +425,7 @@ open class WSTagsField: UIScrollView {
     }
 
     open func removeTag(_ tag: String) {
-        removeTag(WSTag(tag))
+        removeTag(WSTag(tag, context: tag))
     }
 
     open func removeTag(_ tag: WSTag) {
@@ -457,7 +457,7 @@ open class WSTagsField: UIScrollView {
     open func tokenizeTextFieldText() -> WSTag? {
         let text = self.textField.text?.trimmingCharacters(in: CharacterSet.whitespaces) ?? ""
         if text.isEmpty == false && (onVerifyTag?(self, text) ?? true) {
-            let tag = WSTag(text)
+            let tag = WSTag(text, context: text)
             addTag(tag)
 
             self.textField.text = ""
@@ -745,6 +745,7 @@ extension WSTagsField {
 }
 
 extension WSTagsField: UITextFieldDelegate {
+    
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         textDelegate?.textFieldShouldBeginEditing?(textField) ?? true
     }

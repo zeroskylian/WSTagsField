@@ -11,9 +11,10 @@ import Foundation
 public struct WSTag: Hashable {
 
     public let text: String
-    public let context: AnyHashable?
+    
+    public let context: String
 
-    public init(_ text: String, context: AnyHashable? = nil) {
+    public init(_ text: String, context: String) {
         self.text = text
         self.context = context
     }

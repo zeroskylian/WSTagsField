@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         // tagsField.translatesAutoresizingMaskIntoConstraints = false
         // tagsField.heightAnchor.constraint(equalToConstant: 150).isActive = true
 
-        tagsField.suggestions = ["Support", "Work", "Help"]
+        // tagsField.suggestions = ["Support", "Work", "Help"]
         
         tagsField.cornerRadius = 3.0
         tagsField.spaceBetweenLines = 10
