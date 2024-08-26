@@ -3,7 +3,10 @@ disabled_rules:
   - todo
   - valid_docs
   - line_length
+  - trailing_whitespace
+  - unneeded_override
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
   - Pods
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)

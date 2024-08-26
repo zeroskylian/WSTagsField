@@ -121,11 +121,11 @@ open class WSTagsField: UIScrollView {
     @available(iOS 10.0, *)
     @available(*, deprecated, message: "use 'textField.fieldTextContentType' directly.")
     open var fieldTextContentType: UITextContentType! {
-        set {
-            textField.textContentType = newValue
-        }
         get {
             return textField.textContentType
+        }
+        set {
+            textField.textContentType = newValue
         }
     }
 
@@ -277,7 +277,7 @@ open class WSTagsField: UIScrollView {
             }
         }
 
-        return 200 //default estimation
+        return 200 // default estimation
     }
 
     open var preferredMaxLayoutWidth: CGFloat {
@@ -326,7 +326,7 @@ open class WSTagsField: UIScrollView {
     open override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        guard let _ = newSuperview else { return }
+        guard newSuperview != nil else { return }
         tagViews.forEach { $0.setNeedsLayout() }
         repositionViews()
     }
@@ -731,7 +731,7 @@ extension WSTagsField {
 
         if self.isScrollEnabled {
             // FIXME: this isn't working. Need to think in a workaround.
-            //self.scrollRectToVisible(textField.frame, animated: false)
+            // self.scrollRectToVisible(textField.frame, animated: false)
         }
     }
 

@@ -22,8 +22,8 @@ class ViewController: UIViewController {
         tagsField.frame = tagsView.bounds
         tagsView.addSubview(tagsField)
 
-        //tagsField.translatesAutoresizingMaskIntoConstraints = false
-        //tagsField.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        // tagsField.translatesAutoresizingMaskIntoConstraints = false
+        // tagsField.heightAnchor.constraint(equalToConstant: 150).isActive = true
 
         tagsField.suggestions = ["Support", "Work", "Help"]
         
@@ -31,11 +31,11 @@ class ViewController: UIViewController {
         tagsField.spaceBetweenLines = 10
         tagsField.spaceBetweenTags = 10
 
-        //tagsField.numberOfLines = 3
-        //tagsField.maxHeight = 100.0
+        // tagsField.numberOfLines = 3
+        // tagsField.maxHeight = 100.0
 
         tagsField.layoutMargins = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
-        tagsField.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) //old padding
+        tagsField.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // old padding
 
         tagsField.placeholder = "Enter a tag"
         tagsField.placeholderColor = .red
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
 
     @IBAction func touchChangeAppearance(_ sender: UIButton) {
         tagsField.layoutMargins = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
-        tagsField.contentInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2) //old padding
+        tagsField.contentInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2) // old padding
         tagsField.cornerRadius = 10.0
         tagsField.spaceBetweenLines = 2
         tagsField.spaceBetweenTags = 2
@@ -102,16 +102,16 @@ class ViewController: UIViewController {
 extension ViewController {
 
     fileprivate func textFieldEvents() {
-        tagsField.onDidAddTag = { field, tag in
+        tagsField.onDidAddTag = { _, tag in
             print("onDidAddTag", tag.text)
         }
 
-        tagsField.onDidRemoveTag = { field, tag in
+        tagsField.onDidRemoveTag = { _, tag in
             print("onDidRemoveTag", tag.text)
         }
 
         tagsField.onDidChangeText = { _, text in
-            print("onDidChangeText")
+            print("onDidChangeText=\(text ?? "")")
         }
 
         tagsField.onDidChangeHeightTo = { _, height in
