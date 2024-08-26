@@ -141,7 +141,7 @@ open class WSTagsField: UIScrollView {
         }
     }
 
-    @IBInspectable open var placeholderFont: UIFont? {
+    open var placeholderFont: UIFont? {
         didSet {
             updatePlaceholderTextVisibility()
         }
@@ -743,11 +743,11 @@ extension WSTagsField {
         let attributedString = NSMutableAttributedString(string: placeholder)
         
         if let placeholderColor = placeholderColor {
-            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: placeholderColor, range: NSMakeRange(0, placeholder.count))
+            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: placeholderColor, range: NSRange(location: 0, length: placeholder.count))
         }
         
         if let placeholderFont = placeholderFont {
-            attributedString.addAttribute(NSAttributedString.Key.font, value: placeholderFont, range: NSMakeRange(0, placeholder.count))
+            attributedString.addAttribute(NSAttributedString.Key.font, value: placeholderFont, range: NSRange(location: 0, length: placeholder.count))
         }
         
         return attributedString
