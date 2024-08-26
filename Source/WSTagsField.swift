@@ -558,53 +558,12 @@ open class WSTagsField: UIScrollView {
 
 extension WSTagsField {
 
-    @available(*, deprecated, message: "use 'textField.keyboardType' directly.")
-    public var keyboardType: UIKeyboardType {
-        get { return textField.keyboardType }
-        set { textField.keyboardType = newValue }
-    }
-
-    @available(*, deprecated, message: "use 'textField.returnKeyType' directly.")
-    public var returnKeyType: UIReturnKeyType {
-        get { return textField.returnKeyType }
-        set { textField.returnKeyType = newValue }
-    }
-
-    @available(*, deprecated, message: "use 'textField.spellCheckingType' directly.")
-    public var spellCheckingType: UITextSpellCheckingType {
-        get { return textField.spellCheckingType }
-        set { textField.spellCheckingType = newValue }
-    }
-
-    @available(*, deprecated, message: "use 'textField.autocapitalizationType' directly.")
-    public var autocapitalizationType: UITextAutocapitalizationType {
-        get { return textField.autocapitalizationType }
-        set { textField.autocapitalizationType = newValue }
-    }
-
-    @available(*, deprecated, message: "use 'textField.autocorrectionType' directly.")
-    public var autocorrectionType: UITextAutocorrectionType {
-        get { return textField.autocorrectionType }
-        set { textField.autocorrectionType = newValue }
-    }
-
-    @available(*, deprecated, message: "use 'textField.enablesReturnKeyAutomatically' directly.")
-    public var enablesReturnKeyAutomatically: Bool {
-        get { return textField.enablesReturnKeyAutomatically }
-        set { textField.enablesReturnKeyAutomatically = newValue }
-    }
-
     public var text: String? {
         get { return textField.text }
         set { textField.text = newValue }
     }
 
-    @available(*, deprecated, message: "Use 'inputFieldAccessoryView' instead")
-    override open var inputAccessoryView: UIView? {
-        return super.inputAccessoryView
-    }
-
-    open var inputFieldAccessoryView: UIView? {
+    public var inputFieldAccessoryView: UIView? {
         get { return textField.inputAccessoryView }
         set { textField.inputAccessoryView = newValue }
     }

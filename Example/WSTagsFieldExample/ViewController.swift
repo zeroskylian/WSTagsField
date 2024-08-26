@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     fileprivate let tagsField = WSTagsField()
 
     @IBOutlet fileprivate weak var tagsView: UIView!
+    
     @IBOutlet weak var anotherField: UITextField!
 
     override func viewDidLoad() {
@@ -140,5 +141,4 @@ extension ViewController: UITextFieldDelegate {
         }
         return true
     }
-
 }
